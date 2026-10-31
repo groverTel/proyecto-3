@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang=es>
+<head>
+    <meta charset="UTF-8">
+    <title>{$titulo}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/css">
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --text-dark: #2b2d42;
+            --text-light: #8d99ae;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+        header {
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-right: 20px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary); }
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+        }
+        .user-badge {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        h2, h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0;
+            margin-top: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            background: rgba(255,255,255,0.4);
+        }
+        th, td { 
+            padding: 15px; 
+            text-align: left; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        th { 
+            background-color: rgba(67, 97, 238, 0.1); 
+            color: var(--primary);
+            font-weight: 600;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: rgba(255,255,255,0.6); }
+        img.avatar { 
+            border-radius: 12px; 
+            object-fit: cover; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="file"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 5px 0;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        input[type="submit"], input[type="reset"], .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        input[type="reset"] { background: transparent; color: #ef233c; border: 1px solid #ef233c; }
+        input[type="submit"]:hover, .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        input[type="reset"]:hover { background: rgba(239, 35, 60, 0.1); transform: translateY(-2px); }
+        
+        .action-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        .action-link:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>      
+            <nav>   
+            {section name=pos loop= $menu}          
+                 {if $path eq $path|cat:$menu[pos].url}
+                   <a class='active' href={$path}{$menu[pos].url}>{$menu[pos].name}</a>
+                {else}
+                    <a href={$path}{$menu[pos].url}>{$menu[pos].name}</a>
+                {/if}
+            {/section}  
+            </nav>
+            <div class="user-badge">{block name="usuario"} {/block}</div>
+        </header>
+       
+        <div class="glass-card">
+            {block name="cuerpo"}{/block}
+        </div>
+       
+        <footer>
+            Agenda Personal 3 Capas &copy; {$smarty.now|date_format:'%Y'}
+        </footer>
+    </div>
+</body>
+</html>

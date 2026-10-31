@@ -1,0 +1,25 @@
+{extends file="layout.html"}
+
+{block name="cuerpo"}
+<div style="max-width: 400px; margin: 0 auto; text-align: center; padding: 10px;">
+    <h2>{$titulo}</h2>
+    <p style="color: var(--text-light); margin-bottom: 25px;">Ingresa tus credenciales para continuar</p>
+    
+    <form method="get" action="{$pslogin}">
+        <div style="text-align: left; margin-bottom: 15px;">
+            <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--primary);">Usuario (C.I.):</label>
+            <input name="user" type="text" required placeholder="Ej: 3924689">
+        </div>
+        
+        <div style="text-align: left; margin-bottom: 25px;">
+            <label style="font-weight: 600; margin-bottom: 8px; display: block; color: var(--primary);">Contraseña:</label>
+            <input name="password" type="password" required placeholder="••••••••">
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; gap: 15px;">
+            <input type="reset" name="Reset" value="Limpiar" style="flex: 1;">
+            <input type="submit" name="Submit" value="Ingresar" style="flex: 1;">
+        </div>
+    </form>
+</div>
+{/block}

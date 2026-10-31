@@ -1,0 +1,55 @@
+{extends file="layout.html"}
+
+{block name="usuario"}
+{$user}
+{/block}
+
+{block name="cuerpo"}
+<div style="max-width: 600px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); padding-bottom: 15px; margin-bottom: 25px;">
+        <h2 style="margin: 0;">Detalles de Amigo</h2>
+        <a href="personas.php" class="btn" style="background: var(--text-light); padding: 8px 15px;">&larr; Volver</a>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+        <img src="fotos/{$persona.per_cod}.jpg" onerror="this.src='fotos/default.png'" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="margin-top: 15px; color: var(--text-dark); font-size: 1.5em;">{$persona.per_nom} {$persona.per_appm}</h3>
+        <p style="color: var(--primary); font-weight: 600;">{$persona.per_prof}</p>
+    </div>
+
+    <table style="background: rgba(255,255,255,0.7); border-radius: 15px; margin-top: 0; box-shadow: none;">
+        <tr>
+            <td style="width: 40%; font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-id-card" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> C.I.:</td>
+            <td>{$persona.per_cod}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-phone" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Teléfono:</td>
+            <td>{$persona.per_telf}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-mobile-screen-button" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Celular:</td>
+            <td>{$persona.per_cel}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-envelope" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Correo Electrónico:</td>
+            <td>{$persona.per_email}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-location-dot" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Dirección:</td>
+            <td>{$persona.per_dir}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-cake-candles" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Fecha de Nacimiento:</td>
+            <td>{$persona.per_fnac}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600; color: var(--text-dark);"><i class="fa-solid fa-earth-americas" style="color: var(--primary); width: 20px; margin-right: 8px;"></i> Lugar de Nacimiento:</td>
+            <td>{$persona.per_lnac}</td>
+        </tr>
+    </table>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="personas.php?opcion=3&per_cod={$persona.per_cod}" class="btn" style="width: 100%;">Editar Perfil</a>
+    </div>
+</div>
+{/block}

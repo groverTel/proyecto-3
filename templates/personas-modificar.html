@@ -1,0 +1,63 @@
+{extends file="layout.html"}
+
+{block name="usuario"}
+{$user}
+{/block}
+
+{block name="cuerpo"}
+
+<form method="post" action="{$ps}" enctype="multipart/form-data">
+    <input type="hidden" name="opcion" value="30">
+    <input type="hidden" name="cod" value="{$persona.per_cod}">
+    <h2>Modificar Amigo: {$persona.per_nom} {$persona.per_appm}<br></h2>
+    <table>
+    <tr>
+      <td><div align="left">C.I. :</div></td>
+      <td><input type="text" value="{$persona.per_cod}" disabled></td>
+    </tr>
+    <tr>
+      <td>Nombre :</td>
+      <td><input type="text" name="nom" value="{$persona.per_nom}" required></td>
+    </tr>
+    <tr>
+      <td>Apellidos :</td>
+      <td><input type="text" name="appm" value="{$persona.per_appm}" required></td>
+    </tr>
+    <tr>
+      <td>Profesión :</td>
+      <td><input type="text" name="prof" value="{$persona.per_prof}" required></td>
+    </tr>
+    <tr>
+      <td>Teléfono:</td>
+      <td><input type="text" name="tel" value="{$persona.per_telf}" required></td>
+    </tr>
+    <tr>
+      <td>Celular :</td>
+      <td><input type="text" name="cel" value="{$persona.per_cel}" required></td>
+    </tr>
+    <tr>
+      <td>E-Mail :</td>
+      <td><input type="email" name="email" value="{$persona.per_email}" required></td>
+    </tr>
+    <tr>
+      <td>Dirección :</td>
+      <td><input type="text" name="dir" value="{$persona.per_dir}" required></td>
+    </tr>
+    <tr>
+      <td>Fotografía (Opcional) :</td>
+      <td>
+        <img src="fotos/{$persona.per_cod}.jpg" width="100" onerror="this.src='fotos/default.png'" alt="Foto Actual"><br>
+        <input type="file" name="foto" accept="image/jpeg, image/png">
+        <small>Sube una nueva foto para reemplazar la actual.</small>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="Submit" value="Actualizar Datos">
+      </td>
+    </tr>
+    </table>
+</form>
+<br>
+
+{/block}

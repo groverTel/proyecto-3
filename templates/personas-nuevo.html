@@ -1,0 +1,66 @@
+{extends file="layout.html"}
+
+{block name="usuario"}
+{$user}
+{/block}
+
+{block name="cuerpo"}
+
+<form method="post" action="{$ps}" enctype="multipart/form-data">
+    <input type="hidden" name="opcion" value="10">
+    <h2>{$titulo} - Nuevo Registro<br></h2>
+    <table>
+    <tr>
+      <td><div align="left">C.I. :</div></td>
+      <td><input type="text" name="cod" required></td>
+    </tr>
+    <tr>
+      <td>Contraseña :</td>
+      <td><input type="password" name="pass" required></td>
+    </tr>
+    <tr>
+      <td>Nombre :</td>
+      <td><input type="text" name="nom" required></td>
+    </tr>
+    <tr>
+      <td>Apellidos :</td>
+      <td><input type="text" name="appm" required></td>
+    </tr>
+    <tr>
+      <td>Profesión :</td>
+      <td><input type="text" name="prof" required></td>
+    </tr>
+    <tr>
+      <td>Teléfono:</td>
+      <td><input type="text" name="tel" required></td>
+    </tr>
+    <tr>
+      <td>Celular :</td>
+      <td><input type="text" name="cel" required></td>
+    </tr>
+    <tr>
+      <td>E-Mail :</td>
+      <td><input type="email" name="email" required></td>
+    </tr>
+    <tr>
+      <td>Dirección :</td>
+      <td><input type="text" name="dir" required></td>
+    </tr>
+    <tr>
+      <td>Fecha Nac. :</td>
+      <td><input type="date" name="fnac" required></td>
+    </tr>
+    <tr>
+      <td>Lugar Nac. :</td>
+      <td><input type="text" name="lnac" required></td>
+    </tr>   
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="Submit" value="Registrar">
+      </td>
+    </tr>
+    </table>
+</form>
+<br>
+
+{/block}
